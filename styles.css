@@ -10,17 +10,22 @@
   padding: 0;
 }
 
-/* Custom Properties for Vintage Educational Color Palette */
+/* Custom Properties for Blue Skies and Fresh Air Color Palette */
 :root {
-  --cream: #F5F5DC;
-  --beige: #E8DCC4;
-  --soft-mustard: #D4AF37;
-  --desaturated-red: #8B4513;
-  --desaturated-green: #556B2F;
-  --light-brown: #A0522D;
-  --sepia: #704214;
-  --vintage-black: #2F2F2F;
-  --film-grain: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.1 0"/></filter></defs><rect width="100" height="100" filter="url(%23noise)"/></svg>');
+  --sky-blue: #87CEEB;
+  --light-sky-blue: #B0E0E6;
+  --powder-blue: #B6D0E2;
+  --azure-blue: #F0F8FF;
+  --deep-sky-blue: #00BFFF;
+  --cloud-white: #F8F9FA;
+  --fresh-white: #FFFFFF;
+  --soft-blue-gray: #E6F3FF;
+  --ocean-blue: #4682B4;
+  --fresh-green: #98FB98;
+  --light-green: #90EE90;
+  --natural-text: #2C3E50;
+  --soft-shadow: rgba(135, 206, 235, 0.1);
+  --cloud-pattern: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><filter id="clouds"><feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.05 0"/></filter></defs><rect width="100" height="100" filter="url(%23clouds)"/></svg>');
 }
 
 /* Floating Allen avatar */
@@ -32,21 +37,21 @@
   left: 60%;
   width: 48px;
   height: 48px;
-  background: #ffb300;
+  background: var(--deep-sky-blue);
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  box-shadow: 0 2px 8px var(--soft-shadow);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 900;
   animation: pulse 1.2s infinite;
-  border: 3px solid #fffbe7;
+  border: 3px solid var(--fresh-white);
 }
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 #ffb30055; }
-  70% { box-shadow: 0 0 0 16px #ffb30011; }
-  100% { box-shadow: 0 0 0 0 #ffb30000; }
+  0% { box-shadow: 0 0 0 0 var(--deep-sky-blue); }
+  70% { box-shadow: 0 0 0 16px rgba(0, 191, 255, 0.1); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 191, 255, 0); }
 }
 .slide-hotspot svg {
   width: 28px;
@@ -58,16 +63,17 @@
   position: absolute;
   bottom: 130px;
   right: 0;
-  background: #fffbe7;
-  color: #3a2c0c;
+  background: var(--fresh-white);
+  color: var(--natural-text);
   border-radius: 18px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  box-shadow: 0 4px 16px var(--soft-shadow);
   padding: 18px 24px;
   font-size: 1.1em;
   min-width: 220px;
   max-width: 340px;
   z-index: 1001;
   animation: bubble-bounce 0.5s;
+  border: 2px solid var(--light-sky-blue);
 }
 @keyframes bubble-bounce {
   0% { transform: scale(0.7) translateY(30px); opacity: 0; }
@@ -81,20 +87,22 @@
   right: 30px;
   border-width: 18px 18px 0 0;
   border-style: solid;
-  border-color: #fffbe7 transparent transparent transparent;
+  border-color: var(--fresh-white) transparent transparent transparent;
 }
 
 /* General modern tweaks */
 body {
-  background: #f7f3e7;
+  background: linear-gradient(135deg, var(--azure-blue) 0%, var(--light-sky-blue) 50%, var(--sky-blue) 100%);
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  color: #3a2c0c;
+  color: var(--natural-text);
+  min-height: 100vh;
 }
 .film-slide, .slide-header, .slide-content {
   border-radius: 18px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  background: #fffbe7;
+  box-shadow: 0 4px 20px var(--soft-shadow);
+  background: var(--fresh-white);
   margin-bottom: 24px;
+  border: 1px solid var(--light-sky-blue);
 }
 .slide-title {
   font-weight: 700;
@@ -108,16 +116,17 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: var(--film-grain);
-  opacity: 0.1;
+  background-image: var(--cloud-pattern);
+  opacity: 0.08;
   pointer-events: none;
   z-index: 1;
-  animation: grainFlicker 0.2s infinite;
+  animation: cloudDrift 20s infinite linear;
 }
 
-@keyframes grainFlicker {
-  0%, 100% { opacity: 0.08; }
-  50% { opacity: 0.12; }
+@keyframes cloudDrift {
+  0% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(-10px) translateY(-5px); }
+  100% { transform: translateX(0) translateY(0); }
 }
 
 /* Projector Light Effect */
@@ -127,7 +136,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at center top, rgba(255, 255, 200, 0.1) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center top, rgba(135, 206, 235, 0.15) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -136,21 +145,23 @@ body {
 .filmstrip-container {
   max-width: 900px;
   margin: 0 auto;
-  background: var(--beige);
-  box-shadow: 0 0 0 1px var(--sepia), 0 10px 24px rgba(0,0,0,0.18);
+  background: var(--fresh-white);
+  box-shadow: 0 8px 32px var(--soft-shadow), 0 0 0 1px var(--light-sky-blue);
   position: relative;
   z-index: 2;
   padding: 0.5rem 0 0.5rem 0;
+  border-radius: 20px;
 }
 
 /* Vintage Classroom Header */
 .classroom-header {
-  background: linear-gradient(135deg, var(--desaturated-red), var(--light-brown));
-  color: var(--cream);
+  background: linear-gradient(135deg, var(--deep-sky-blue), var(--ocean-blue));
+  color: var(--fresh-white);
   padding: 1.1rem 1.2rem 0.7rem 1.2rem;
   text-align: center;
-  border-bottom: 3px solid var(--sepia);
+  border-bottom: 3px solid var(--sky-blue);
   position: relative;
+  border-radius: 20px 20px 0 0;
 }
 
 .classroom-header::before {
@@ -218,7 +229,7 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 3px solid var(--cream);
+  border: 3px solid var(--fresh-white);
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   margin-bottom: 0.2rem;
   filter: sepia(0.3) contrast(1.1);
@@ -228,18 +239,18 @@ body {
   font-family: 'Work Sans', sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--cream);
+  color: var(--fresh-white);
 }
 
 /* Film Counter Progress */
 .film-counter {
-  background: var(--vintage-black);
-  color: var(--cream);
+  background: var(--soft-blue-gray);
+  color: var(--natural-text);
   padding: 0.5rem 1.2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid var(--sepia);
+  border-bottom: 2px solid var(--sky-blue);
 }
 
 .counter-display {
@@ -249,7 +260,7 @@ body {
 }
 
 .current-slide {
-  color: var(--soft-mustard);
+  color: var(--deep-sky-blue);
 }
 
 .slide-separator {
@@ -258,7 +269,7 @@ body {
 }
 
 .total-slides {
-  color: var(--cream);
+  color: var(--natural-text);
 }
 
 .progress-reel {
@@ -464,15 +475,16 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  opacity: 0.8;
+  color: var(--ocean-blue);
+  opacity: 0.9;
   margin-top: 0.5rem;
 }
 
 /* Projector Controls */
 .projector-controls {
-  background: var(--sepia);
+  background: var(--cloud-white);
   padding: 0.5rem 1.2rem;
-  border-bottom: 2px solid var(--vintage-black);
+  border-bottom: 2px solid var(--sky-blue);
 }
 
 .control-panel {
@@ -483,9 +495,9 @@ body {
 }
 
 .control-btn {
-  background: var(--vintage-black);
-  color: var(--cream);
-  border: 2px solid var(--light-brown);
+  background: var(--deep-sky-blue);
+  color: var(--fresh-white);
+  border: 2px solid var(--ocean-blue);
   border-radius: 8px;
   padding: 0.5rem 1.1rem;
   font-family: 'Work Sans', sans-serif;
@@ -499,10 +511,10 @@ body {
 }
 
 .control-btn:hover {
-  background: var(--light-brown);
-  color: var(--vintage-black);
+  background: var(--ocean-blue);
+  color: var(--fresh-white);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 15px var(--soft-shadow);
 }
 
 .btn-icon {
@@ -518,18 +530,18 @@ body {
 .slide-selector label {
   font-family: 'Work Sans', sans-serif;
   font-weight: 600;
-  color: var(--cream);
+  color: var(--natural-text);
   font-size: 0.85rem;
 }
 
 .slide-selector select {
-  background: var(--cream);
-  border: 2px solid var(--light-brown);
+  background: var(--fresh-white);
+  border: 2px solid var(--sky-blue);
   border-radius: 4px;
   padding: 0.3rem;
   font-family: 'EB Garamond', serif;
   font-size: 0.95rem;
-  color: var(--vintage-black);
+  color: var(--natural-text);
   cursor: pointer;
 }
 
@@ -788,11 +800,12 @@ body {
 
 /* Filmstrip Footer */
 .filmstrip-footer {
-  background: var(--vintage-black);
-  color: var(--cream);
+  background: var(--soft-blue-gray);
+  color: var(--natural-text);
   padding: 0.5rem 1.2rem;
   text-align: center;
-  border-top: 3px solid var(--sepia);
+  border-top: 3px solid var(--sky-blue);
+  border-radius: 0 0 20px 20px;
 }
 
 .production-credits {
@@ -808,7 +821,7 @@ body {
   font-family: 'Work Sans', sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  color: var(--soft-mustard);
+  color: var(--deep-sky-blue);
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 0.1rem;
