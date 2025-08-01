@@ -8,12 +8,12 @@ const slides = [
     { id: 4, title: "Chapter 4: The Sinister Trap", subtitle: "Understanding the addiction cycle" },
     { id: 5, title: "Chapter 5: Why Do We Carry on Smoking?", subtitle: "The reasons we continue" },
     { id: 6, title: "Chapter 6: Nicotine Addiction", subtitle: "The physical dependency" },
-    { id: 7, title: "Slide 7: The Sleeping Partner", subtitle: "The truth about nicotine addiction" },
-    { id: 8, title: "Slide 8: Why We Smoke", subtitle: "The illusion of enjoyment" },
-    { id: 9, title: "Slide 9: The Nicotine Addiction", subtitle: "A chemical trap" },
-    { id: 10, title: "Slide 10: Relief from Stress and Boredom", subtitle: "The great lie" },
-    { id: 11, title: "Slide 11: Concentration and Confidence", subtitle: "False promises" },
-    { id: 12, title: "Slide 12: The Timing of Quitting", subtitle: "There's no perfect moment" },
+    { id: 7, title: "Chapter 7: Brainwashing and the Sleeping Partner", subtitle: "Understanding the origins of smoking" },
+    { id: 8, title: "Chapter 8: Relieving Withdrawal Pangs", subtitle: "The illusion of relief" },
+    { id: 9, title: "Chapter 9: Stress", subtitle: "The stress relief myth" },
+    { id: 10, title: "Chapter 10: Boredom", subtitle: "The boredom relief myth" },
+    { id: 11, title: "Chapter 11: Concentration", subtitle: "The concentration myth" },
+    { id: 12, title: "Chapter 12: Relaxations", subtitle: "The relaxation myth" },
     { id: 13, title: "Chapter 13: Combination Cigarettes", subtitle: "Different types of cigarettes" },
     { id: 14, title: "Chapter 14: What am I Giving Up?", subtitle: "The truth about sacrifice" },
     { id: 15, title: "Chapter 15: Self-imposed Slavery", subtitle: "Breaking free from addiction" },
@@ -22,7 +22,7 @@ const slides = [
     { id: 18, title: "Chapter 18: Energy", subtitle: "Increased energy and vitality" },
     { id: 19, title: "Chapter 19: It Relaxes Me and Gives Me Confidence", subtitle: "The relaxation myth" },
     { id: 20, title: "Chapter 20: Those Sinister Black Shadows", subtitle: "The health consequences" },
-    { id: 21, title: "The Science of Addiction", subtitle: "Understanding the biology" },
+    { id: 21, title: "Chapter 21: The Science of Addiction", subtitle: "Understanding the biology" },
     { id: 22, title: "Chapter 22: The Willpower Method of Stopping", subtitle: "Why willpower fails" },
     { id: 23, title: "Chapter 23: Beware of Cutting Down", subtitle: "The gradual reduction trap" },
     { id: 24, title: "Chapter 24: Just One Cigarette", subtitle: "The one cigarette myth" },
@@ -34,13 +34,19 @@ const slides = [
     { id: 30, title: "Chapter 30: Will I Put on Weight?", subtitle: "Weight gain concerns" },
     { id: 31, title: "Chapter 31: Avoid False Incentives", subtitle: "True motivation for quitting" },
     { id: 32, title: "Chapter 32: The Easy Way to Stop", subtitle: "The complete method" },
-    { id: 33, title: "Celebrating Success", subtitle: "Acknowledging your achievement" },
-    { id: 34, title: "Advanced Techniques", subtitle: "Mastering the method" },
-    { id: 35, title: "The Complete Transformation", subtitle: "Your full transformation" },
-    { id: 36, title: "Living Without Smoking", subtitle: "Your new normal" },
-    { id: 37, title: "The Legacy of Freedom", subtitle: "Your lasting impact" },
-    { id: 38, title: "Final Thoughts", subtitle: "Reflections on freedom" },
-    { id: 39, title: "Your New Beginning", subtitle: "Starting your free life" }
+    { id: 33, title: "Chapter 33: The Withdrawal Period", subtitle: "Understanding withdrawal symptoms" },
+    { id: 34, title: "Chapter 34: Just One Puff", subtitle: "The one puff myth" },
+    { id: 35, title: "Chapter 35: Will it be Harder for Me?", subtitle: "Individual concerns" },
+    { id: 36, title: "Chapter 36: The Main Reasons for Failure", subtitle: "Common failure points" },
+    { id: 37, title: "Chapter 37: Substitutes", subtitle: "Why substitutes don't work" },
+    { id: 38, title: "Chapter 38: Should I Avoid Temptation Situations?", subtitle: "Dealing with triggers" },
+    { id: 39, title: "Chapter 39: The Moment of Revelation", subtitle: "The breakthrough moment" },
+    { id: 40, title: "Chapter 40: The Final Cigarette", subtitle: "Your last cigarette" },
+    { id: 41, title: "Chapter 41: A Final Warning", subtitle: "Important cautions" },
+    { id: 42, title: "Chapter 42: Twelve Years' Feedback", subtitle: "Success stories" },
+    { id: 43, title: "Chapter 43: Help the Smoker Left on the Sinking Ship", subtitle: "Helping others" },
+    { id: 44, title: "Chapter 44: Advice to Non-smokers", subtitle: "Guidance for non-smokers" },
+    { id: 45, title: "Finale: Help End This Scandal", subtitle: "The final call to action" }
 ];
 
 // Allen Carr Quotes for Each Slide (enriched with more direct, memorable lines)
@@ -87,7 +93,7 @@ const allenQuotes = [
 ];
 
 // Available Slide Images
-const availableImages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39];
+const availableImages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45];
 
 // Current slide state
 let currentSlide = 1;
@@ -264,7 +270,7 @@ function setupControls() {
     }
     if (nextBtn) {
         nextBtn.addEventListener('click', () => {
-            if (currentSlide < 39) {
+            if (currentSlide < 45) {
                 renderSlide(currentSlide + 1);
             }
         });
@@ -343,7 +349,7 @@ function updateProgress() {
     const cigarette = document.getElementById('cigaretteProgress');
     if (!paper || !ashLayer || !burningEmber || !cigarette) return;
     // The paper is the part that shrinks as you progress
-    const progress = Math.min(Math.max(currentSlide / 39, 0), 1);
+    const progress = Math.min(Math.max(currentSlide / 45, 0), 1);
     const paperMaxWidth = 120; // px, matches CSS max-width
     const paperWidth = Math.max(0, paperMaxWidth * (1 - progress));
     paper.style.width = paperWidth + 'px';
@@ -519,7 +525,7 @@ function handleKeyboardNavigation(e) {
             }
             break;
         case 'ArrowRight':
-            if (currentSlide < 39) {
+            if (currentSlide < 45) {
                 renderSlide(currentSlide + 1);
             }
             break;
@@ -527,7 +533,7 @@ function handleKeyboardNavigation(e) {
             renderSlide(1);
             break;
         case 'End':
-            renderSlide(39);
+            renderSlide(45);
             break;
     }
 }
@@ -543,31 +549,41 @@ function getSlideContent(slideNum) {
     const contents = {
         1: `
             <h3 class="section-title">Chapter 1: The Worst Nicotine Addict I Have Yet to Meet</h3>
-            <p class="slide-subtitle">Allen Carr's personal story</p>
+            <p class="slide-subtitle">Introduction to the Author's Journey</p>
+            
             <div class="main-quote-block">
                 <p>"I was the worst nicotine addict I have yet to meet. I smoked 100 cigarettes a day, and every attempt to quit ended in failure and misery."</p>
-                <p>"The real problem is not the physical addiction to nicotine, but the mental trap. The belief that smoking provides some genuine pleasure or crutch is the true prison."</p>
+                <p>"The enjoyment smokers think they get from cigarettes is largely an illusion influenced by fear."</p>
             </div>
+            
             <div class="psychological-insight-box">
-                <h4>How the Trap Works:</h4>
-                <p>Allen Carr describes his own journey: years of failed attempts, the feeling of hopelessness, and the moment of clarity that came not from willpower, but from understanding the nature of the trap. He realized that every smoker is afraid of life without cigarettes, but that fear is an illusion created by the addiction itself.</p>
+                <h4>Understanding the Psychological Barriers:</h4>
+                <p>Allen Carr shares his personal experience as a long-term smoker, detailing his struggles and attempts to quit smoking over three decades. Despite being aware of the health risks and experiencing negative physical effects, he felt dependent on cigarettes. The key insight is that many smokers believe they enjoy smoking, but in reality, it is fear of deprivation that keeps them addicted.</p>
             </div>
+            
             <div class="bullet-summary">
                 <ul class="educational-list">
-                    <li>🚬 Allen Carr smoked 100 cigarettes a day and failed to quit many times</li>
-                    <li>🧠 The real trap is mental, not physical</li>
-                    <li>😨 Fear of quitting is the main barrier—not lack of willpower</li>
-                    <li>🔓 Understanding the trap is the first step to freedom</li>
-                    <li>💬 "The enjoyment smokers think they get from cigarettes is an illusion driven by fear."</li>
+                    <li>🚬 Allen Carr smoked 100 cigarettes a day for three decades</li>
+                    <li>🧠 The real trap is psychological, not physical addiction</li>
+                    <li>😨 Fear of deprivation, not enjoyment, keeps smokers addicted</li>
+                    <li>🔓 Life without cigarettes can be more enjoyable and fulfilling</li>
+                    <li>💡 Understanding the mindset is crucial for successful quitting</li>
                 </ul>
             </div>
+            
             <div class="motivational-closing">
-                <h4>Key Insight</h4>
-                <p>"You are not giving up anything—you're escaping a prison. The chains that bind you are not physical—they're mental. Once you see the truth, the chains fall away."</p>
+                <h4>Critical Thinking:</h4>
+                <p>While Carr emphasizes mental barriers and the fear of deprivation as central to addiction, not all smokers may share the same psychological profile. Research indicates that factors such as genetic predisposition, social influences, and emotional health can significantly affect an individual's relationship with smoking. Therefore, Carr's approach, while effective for many, may not resonate with every smoker.</p>
             </div>
+            
             <div class="educational-summary">
-                <h4>Educational Summary</h4>
-                <p>This chapter introduces Allen Carr's story and the core message: the real obstacle to quitting is not nicotine, but the illusion that smoking provides pleasure or support. The first step to freedom is to see through the illusion and understand that you are not giving up anything of value.</p>
+                <h4>Methodology for Quitting:</h4>
+                <p>Carr's profession now involves helping others quit smoking, and he insists that anyone, regardless of their prior smoking habits, can successfully stop. He encourages readers to approach the book with an open mind, emphasizing that understanding and following instructions are crucial. The journey to quit smoking is not just about giving up a habit but involves a significant shift in mindset.</p>
+            </div>
+            
+            <div class="warning-box">
+                <h4>⚠️ Warnings About Common Pitfalls:</h4>
+                <p>Carr warns of two main reasons people fail to quit: failing to carry out the method's instructions and failing to fully understand the mindset surrounding smoking. He advocates against using substitutes or cutting down, arguing that true success comes from a complete, committed cessation of smoking.</p>
             </div>
         `,
         2: `
@@ -601,31 +617,46 @@ function getSlideContent(slideNum) {
         `,
         3: `
             <h3 class="section-title">Chapter 3: Why is it Difficult to Stop?</h3>
-            <p class="slide-subtitle">The psychological trap</p>
+            <p class="slide-subtitle">Introduction to Smoking Addiction</p>
+            
             <div class="main-quote-block">
-                <p>"It's not the nicotine that makes it hard to quit—it's the fear. The fear that life will never be quite as enjoyable without cigarettes, that you'll have to endure misery, and that you'll be deprived for the rest of your life."</p>
-                <p>"The real pain isn't quitting—it's continuing. The discomfort isn't from giving up a friend, it's from staying stuck in a loop that gives you nothing."</p>
+                <p>"All smokers genuinely wish to stop smoking, creating a contradiction as they continue a habit they despise."</p>
+                <p>"The perceived pleasure of smoking is argued to be an illusion, with many smokers believing they enjoy it while using it as an excuse to continue."</p>
             </div>
+            
             <div class="psychological-insight-box">
-                <h4>The Nicotine Trap:</h4>
-                <p>Smokers are brainwashed by society, advertising, and their own experiences to believe smoking is enjoyable or necessary. Carr explains that the real reason quitting feels hard is the mental tug-of-war and the illusion of pleasure, not the physical addiction.</p>
+                <h4>The Enigma of Smoking:</h4>
+                <p>The author shares a personal account of his struggle with smoking addiction, highlighting the feelings of depression and hopelessness associated with attempts to quit. The prevalence of smoking, despite the negative consequences, raises questions about why individuals start smoking and why it is so difficult to stop, even when many genuinely wish to quit.</p>
             </div>
+            
             <div class="bullet-summary">
                 <ul class="educational-list">
-                    <li>🧠 The real trap is psychological, not physical</li>
-                    <li>😨 Fear of quitting is worse than the reality</li>
-                    <li>🎭 The "pleasure" is just relief from withdrawal</li>
-                    <li>🧹 You've been brainwashed by society and habit</li>
-                    <li>💬 "You are not giving up anything when you quit smoking. You are freeing yourself from a lifetime of slavery."</li>
+                    <li>😔 Feelings of depression and hopelessness when trying to quit</li>
+                    <li>🔄 All smokers genuinely wish to stop, creating a contradiction</li>
+                    <li>❓ Why does smoking persist despite negative consequences?</li>
+                    <li>💰 Smoking is costly and harmful, leading to health issues</li>
+                    <li>🎭 The perceived pleasure is an illusion used as an excuse</li>
                 </ul>
             </div>
+            
             <div class="motivational-closing">
-                <h4>Key Insight</h4>
-                <p>"It's the fear that makes it hard to quit—not the addiction. Once you see through the illusion, the fear disappears."</p>
+                <h4>Understanding Addiction:</h4>
+                <p>The text emphasizes that smoking is a nicotine addiction, not just a mere habit, which is essential for understanding the difficulty of quitting. Common justifications for smoking are debunked, demonstrating that reasons like boredom do not withstand scrutiny.</p>
             </div>
+            
             <div class="educational-summary">
-                <h4>Educational Summary</h4>
-                <p>This chapter exposes the psychological trap of smoking. The real pain is not in quitting, but in continuing. The first step is to see through the illusion and recognize that you're not giving up anything of value."</p>
+                <h4>Consequences of Smoking:</h4>
+                <p>Smoking is costly and harmful, leading to health issues and social stigma, with smokers feeling trapped in a cycle of craving and guilt. The perceived pleasure of smoking is argued to be an illusion, with many smokers believing they enjoy it while using it as an excuse to continue.</p>
+            </div>
+            
+            <div class="warning-box">
+                <h4>⚠️ Myths about Smoking:</h4>
+                <p>Common justifications for smoking are debunked, demonstrating that reasons like boredom, stress relief, or social acceptance do not withstand scrutiny. Understanding nicotine addiction and true motivations behind smoking makes quitting easier and leads to questioning why one ever smoked.</p>
+            </div>
+            
+            <div class="conclusion-box">
+                <h4>🎯 Conclusion: Freedom from Smoking</h4>
+                <p>Understanding nicotine addiction and true motivations behind smoking makes quitting easier and leads to questioning why one ever smoked. The real pain isn't quitting—it's continuing. The discomfort isn't from giving up a friend, it's from staying stuck in a loop that gives you nothing.</p>
             </div>
         `,
         4: `
@@ -700,46 +731,47 @@ function getSlideContent(slideNum) {
             </div>
         `,
         7: `
-            <h3 class="section-title">Slide 7: The Sleeping Partner</h3>
-            <p class="slide-subtitle">The truth about nicotine addiction</p>
+            <h3 class="section-title">Chapter 7: Brainwashing and the Sleeping Partner</h3>
+            <p class="slide-subtitle">Understanding the Origins of Smoking</p>
             
             <div class="main-quote-block">
-                <p>"Nicotine addiction is like having a sleeping partner inside you. It doesn't cause constant pain—it causes subtle, frequent discomfort, like a mild itch. Every cigarette scratches that itch, but then the itch comes back."</p>
-                
-                <p>"You don't smoke because you enjoy it. You smoke to feel 'normal' again. That's the trick: you're trapped into smoking to relieve the very discomfort smoking creates."</p>
+                <p>"Individuals often perceive themselves as rational decision-makers, but much of their behavior is influenced by subconscious conditioning."</p>
+                <p>"The true freedom lies in recognizing smoking for what it is: an addiction that offers no real rewards."</p>
             </div>
             
             <div class="psychological-insight-box">
-                <h4>The Addictive Cycle, Simplified:</h4>
-                <p>When you smoke a cigarette, nicotine enters your bloodstream quickly. Then, over the next 30 minutes to 1 hour, the level drops and your body starts to crave it again.</p>
-                <p>But the craving is so subtle, most smokers don't even recognize it as withdrawal—they just think they're bored, stressed, or restless.</p>
-                <p>So they light up… again. And again.</p>
-                <p><strong>This is the trap: you're not chasing pleasure, you're feeding an invisible parasite that only lets you feel "okay" when it's fed.</strong></p>
+                <h4>The Subconscious Mind's Influence:</h4>
+                <p>Society shapes not only lifestyle choices but also opinions on political affiliations and habits like smoking. Advertising exploits the subconscious to promote smoking, creating associations between cigarettes and relaxation or confidence. Continuous exposure to pro-smoking messaging leads to a strong belief that smoking is necessary for stress relief or social acceptance.</p>
             </div>
             
             <div class="bullet-summary">
                 <ul class="educational-list">
-                    <li>🧪 Nicotine creates subtle withdrawal symptoms almost immediately after each cigarette</li>
-                    <li>🔁 Smoking only relieves the withdrawal from the <em>last</em> cigarette</li>
-                    <li>💤 Most of the time, the "sleeping partner" is quiet—but always lurking</li>
-                    <li>🔒 This isn't about lack of willpower—it's chemical manipulation</li>
-                    <li>💡 Once you understand the cycle, it's easier to break free</li>
+                    <li>🧠 Behavior is influenced by subconscious conditioning, shaped by society</li>
+                    <li>📺 Advertising creates associations between smoking and relaxation/confidence</li>
+                    <li>🔄 Continuous pro-smoking messaging leads to belief that smoking is essential</li>
+                    <li>💭 The irony: smokers are often among the strongest-willed individuals</li>
+                    <li>🎭 Society views smoking differently than other deadly substances</li>
                 </ul>
             </div>
             
             <div class="motivational-closing">
-                <h4>Key Insight</h4>
-                <p>"The partner isn't sleeping. He's just waiting for his next fix. You don't need him."</p>
+                <h4>Questioning the Need to Smoke:</h4>
+                <p>Challenging the motives behind smoking is essential. Smokers must learn to see through the facade of glamorous advertising and evaluate their reasons for smoking. Many smokers have internalized the notion that they "give up" smoking, when in reality, they are liberating themselves from addiction.</p>
             </div>
             
             <div class="educational-summary">
-                <h4>Educational Summary</h4>
-                <p>This chapter explains the true nature of nicotine addiction. It's not dramatic pain—it's constant low-level discomfort that smokers misinterpret as "stress" or "boredom." The cigarette doesn't improve your state of mind—it just returns you to baseline. The "sleeping partner" is a metaphor for this parasitic cycle. Understanding this illusion is the first step to escaping it.</p>
+                <h4>The Role of Social Pressure:</h4>
+                <p>Smoking is often perpetuated by social environments where peers reinforce the behavior. Both smokers and ex-smokers may perceive a sense of loss when they see others smoke, which can lead to relapse. The government benefits fiscally from tobacco sales, further complicating the public's understanding and stigma around smoking.</p>
+            </div>
+            
+            <div class="warning-box">
+                <h4>⚠️ Breaking the Cycle of Brainwashing:</h4>
+                <p>The focus should shift from "giving up" smoking to "escaping" the habit, reframing the experience as a positive gain rather than a sacrifice. Smokers forfeit significant aspects of life, including health and happiness, while gaining nothing of substance from smoking. True freedom lies in seeing smoking as a non-rewarding addiction and embracing a smoke-free life.</p>
             </div>
         `,
         8: `
-            <h3 class="section-title">Slide 8: Why We Smoke</h3>
-            <p class="slide-subtitle">The illusion of enjoyment</p>
+            <h3 class="section-title">Chapter 8: Relieving Withdrawal Pangs</h3>
+            <p class="slide-subtitle">The illusion of relief</p>
             
             <div class="main-quote-block">
                 <p>"Smokers don't smoke because they want to. They smoke because they feel they have to. They've mistaken withdrawal relief for real pleasure."</p>
@@ -772,8 +804,8 @@ function getSlideContent(slideNum) {
             </div>
         `,
         9: `
-            <h3 class="section-title">Slide 9: The Nicotine Addiction</h3>
-            <p class="slide-subtitle">A chemical trap</p>
+            <h3 class="section-title">Chapter 9: Stress</h3>
+            <p class="slide-subtitle">The stress relief myth</p>
             
             <div class="main-quote-block">
                 <p>"Nicotine is the most addictive drug known to humankind. But its withdrawal symptoms are subtle and easy to misinterpret."</p>
@@ -804,8 +836,8 @@ function getSlideContent(slideNum) {
             </div>
         `,
         10: `
-            <h3 class="section-title">Slide 10: Relief from Stress and Boredom</h3>
-            <p class="slide-subtitle">The great lie</p>
+            <h3 class="section-title">Chapter 10: Boredom</h3>
+            <p class="slide-subtitle">The boredom relief myth</p>
             
             <div class="main-quote-block">
                 <p>"Cigarettes don't relieve stress or boredom. They cause both."</p>
@@ -836,8 +868,8 @@ function getSlideContent(slideNum) {
             </div>
         `,
         11: `
-            <h3 class="section-title">Slide 11: Concentration and Confidence</h3>
-            <p class="slide-subtitle">False promises</p>
+            <h3 class="section-title">Chapter 11: Concentration</h3>
+            <p class="slide-subtitle">The concentration myth</p>
             
             <div class="main-quote-block">
                 <p>"Smokers think cigarettes help them focus. But nicotine creates restlessness, and the cigarette merely calms the craving."</p>
@@ -868,8 +900,8 @@ function getSlideContent(slideNum) {
             </div>
         `,
         12: `
-            <h3 class="section-title">Slide 12: The Timing of Quitting</h3>
-            <p class="slide-subtitle">There's no perfect moment</p>
+            <h3 class="section-title">Chapter 12: Relaxations</h3>
+            <p class="slide-subtitle">The relaxation myth</p>
             
             <div class="main-quote-block">
                 <p>"There is never a bad time to quit smoking. The sooner you start, the sooner you're free."</p>
@@ -1004,7 +1036,7 @@ function getSlideContent(slideNum) {
             </div>
         `,
         21: `
-            <h3 class="section-title">The Science of Addiction</h3>
+            <h3 class="section-title">Chapter 21: The Science of Addiction</h3>
             <p class="slide-subtitle">Understanding the biology</p>
             
             <div class="main-quote-block">
@@ -1160,8 +1192,8 @@ function getSlideContent(slideNum) {
             </div>
         `,
         33: `
-            <h3 class="section-title">Celebrating Success</h3>
-            <p class="slide-subtitle">Acknowledging your achievement</p>
+            <h3 class="section-title">Chapter 33: The Withdrawal Period</h3>
+            <p class="slide-subtitle">Understanding withdrawal symptoms</p>
             
             <div class="main-quote-block">
                 <p>"Celebrating success is not about boasting—it's about acknowledging your achievement. The key is to understand that you are already free, and that your success is not about achieving—it's about being. You are already successful, and you are already free."</p>
@@ -1173,8 +1205,8 @@ function getSlideContent(slideNum) {
             </div>
         `,
         34: `
-            <h3 class="section-title">Advanced Techniques</h3>
-            <p class="slide-subtitle">Mastering the method</p>
+            <h3 class="section-title">Chapter 34: Just One Puff</h3>
+            <p class="slide-subtitle">The one puff myth</p>
             
             <div class="main-quote-block">
                 <p>"Advanced techniques are just deeper understanding. The key is to understand that you are already free, and that advanced techniques are not about mastering—they are about deepening your understanding and making the process effortless."</p>
@@ -1186,8 +1218,8 @@ function getSlideContent(slideNum) {
             </div>
         `,
         35: `
-            <h3 class="section-title">The Complete Transformation</h3>
-            <p class="slide-subtitle">Your full transformation</p>
+            <h3 class="section-title">Chapter 35: Will it be Harder for Me?</h3>
+            <p class="slide-subtitle">Individual concerns</p>
             
             <div class="main-quote-block">
                 <p>"The complete transformation is not a process—it's a realization. The key is to understand that you are already free, and that transformation is not about becoming—it's about realizing. You are already free, and you are already transformed."</p>
@@ -1199,8 +1231,8 @@ function getSlideContent(slideNum) {
             </div>
         `,
         36: `
-            <h3 class="section-title">Living Without Smoking</h3>
-            <p class="slide-subtitle">Your new normal</p>
+            <h3 class="section-title">Chapter 36: The Main Reasons for Failure</h3>
+            <p class="slide-subtitle">Common failure points</p>
             
             <div class="main-quote-block">
                 <p>"Living without smoking is not a sacrifice—it's a gift. The key is to understand that you are already free, and that living without smoking is not about giving up—it's about gaining. You are already free, and you are already living the life of freedom."</p>
@@ -1212,8 +1244,8 @@ function getSlideContent(slideNum) {
             </div>
         `,
         37: `
-            <h3 class="section-title">The Legacy of Freedom</h3>
-            <p class="slide-subtitle">Your lasting impact</p>
+            <h3 class="section-title">Chapter 37: Substitutes</h3>
+            <p class="slide-subtitle">Why substitutes don't work</p>
             
             <div class="main-quote-block">
                 <p>"Your legacy of freedom will inspire others to find their own. The key is to understand that you are already free, and that your legacy is not about leaving—it's about inspiring. You are already free, and you are already inspiring."</p>
@@ -1225,8 +1257,8 @@ function getSlideContent(slideNum) {
             </div>
         `,
         38: `
-            <h3 class="section-title">Final Thoughts</h3>
-            <p class="slide-subtitle">Reflections on freedom</p>
+            <h3 class="section-title">Chapter 38: Should I Avoid Temptation Situations?</h3>
+            <p class="slide-subtitle">Dealing with triggers</p>
             
             <div class="main-quote-block">
                 <p>"Final thoughts are just the beginning of your new life. The key is to understand that you are already free, and that your new beginning is not about starting—it's about continuing. You are already free, and you are already living the life of freedom."</p>
@@ -1238,8 +1270,8 @@ function getSlideContent(slideNum) {
             </div>
         `,
         39: `
-            <h3 class="section-title">Your New Beginning</h3>
-            <p class="slide-subtitle">Starting your free life</p>
+            <h3 class="section-title">Chapter 39: The Moment of Revelation</h3>
+            <p class="slide-subtitle">The breakthrough moment</p>
             
             <div class="main-quote-block">
                 <p>"Your new beginning starts with the understanding that you're already free. The key is to understand that you are already free, and that your new beginning is not about starting—it's about continuing. You are already free, and you are already living the life of freedom."</p>
@@ -1508,11 +1540,11 @@ function startAutoAdvance() {
     if (autoAdvanceInterval) return;
     
     autoAdvanceInterval = setInterval(() => {
-        if (currentSlide < 39) {
-            renderSlide(currentSlide + 1);
-        } else {
-            stopAutoAdvance();
-        }
+                    if (currentSlide < 45) {
+                renderSlide(currentSlide + 1);
+            } else {
+                stopAutoAdvance();
+            }
     }, 30000); // 30 seconds per slide
 }
 

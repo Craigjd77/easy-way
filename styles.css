@@ -1125,23 +1125,24 @@ body {
 }
 
 .motivational-closing {
-    background: linear-gradient(135deg, #ffd700, #ffb300);
+    background: linear-gradient(135deg, var(--light-sky-blue), var(--powder-blue));
     border-radius: 12px;
     padding: 1.2rem;
     margin: 1.5rem 0;
-    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 4px 16px var(--soft-shadow);
     text-align: center;
+    border: 2px solid var(--sky-blue);
 }
 
 .motivational-closing h4 {
-    color: #8b4513;
+    color: var(--ocean-blue);
     font-weight: 700;
     margin-bottom: 0.5rem;
     font-size: 1.2rem;
 }
 
 .motivational-closing p {
-    color: #8b4513;
+    color: var(--natural-text);
     font-weight: 600;
     font-size: 1.1rem;
     margin: 0;
@@ -1149,16 +1150,16 @@ body {
 }
 
 .educational-summary {
-    background: #f7f3e7;
-    border: 2px solid #d4c4a8;
+    background: var(--fresh-white);
+    border: 2px solid var(--light-sky-blue);
     border-radius: 10px;
     padding: 1.2rem;
     margin: 1rem 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px var(--soft-shadow);
 }
 
 .educational-summary h4 {
-    color: #b85c00;
+    color: var(--ocean-blue);
     font-weight: 600;
     margin-bottom: 0.8rem;
     font-size: 1.1rem;
@@ -1167,10 +1168,65 @@ body {
 }
 
 .educational-summary p {
-    color: #3a2c0c;
+    color: var(--natural-text);
     line-height: 1.6;
     margin: 0;
     font-size: 1rem;
+}
+
+.warning-box {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    border: 2px solid #ffc107;
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(255, 193, 7, 0.1);
+}
+
+.warning-box h4 {
+    color: #856404;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.warning-box p {
+    color: #856404;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.conclusion-box {
+    background: linear-gradient(135deg, var(--fresh-green) 0%, var(--light-green) 100%);
+    border: 2px solid var(--fresh-green);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(152, 251, 152, 0.2);
+}
+
+.conclusion-box h4 {
+    color: #2d5016;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.conclusion-box p {
+    color: #2d5016;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
 }
 
 .slide-subtitle {
