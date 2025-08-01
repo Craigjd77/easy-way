@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allen Carr's Educational Series: Easy Way to Stop Smoking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Work+Sans:wght@400;600;700&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Film Grain Overlay -->
+    <div class="film-grain"></div>
+    
+    <!-- Projector Light Effect -->
+    <div class="projector-light"></div>
+    
+    <!-- Main Filmstrip Container -->
+    <div class="filmstrip-container">
+        <!-- Vintage Classroom Header -->
+        <header class="classroom-header" id="classroomHeader">
+            <button class="banner-toggle" id="bannerToggle" aria-label="Collapse banner" title="Collapse banner">
+                <span class="toggle-icon" id="bannerToggleIcon">▲</span>
+            </button>
+            <div class="banner-content" id="bannerContent">
+                <div class="header-content">
+                    <h1 class="series-title">Allen Carr's Educational Series</h1>
+                    <div class="subtitle">Easy Way to Stop Smoking</div>
+                    <div class="educational-label">A Comprehensive Health Education Program</div>
+                </div>
+                <div class="allen-portraits">
+                    <div class="portrait-frame">
+                        <img src="images/allen1.png" alt="Allen Carr" class="allen-portrait">
+                        <div class="portrait-caption">Allen Carr, M.A.</div>
+                    </div>
+                    <div class="portrait-frame">
+                        <img src="images/allen3.png" alt="Allen Carr's Wife" class="allen-portrait">
+                        <div class="portrait-caption">Mrs. Carr</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Film Counter Progress -->
+        <section class="film-counter">
+            <div class="counter-display">
+                <span class="current-slide">Slide 1</span>
+                <span class="slide-separator">of</span>
+                <span class="total-slides">39</span>
+            </div>
+            <div class="progress-reel">
+                <div class="cigarette-container">
+                    <div class="cigarette" id="cigaretteProgress">
+                        <div class="cigarette-filter"></div>
+                        <div class="cigarette-paper" id="cigarettePaper"></div>
+                        <div class="cigarette-burning">
+                            <div class="cigarette-ash" id="ashLayer"></div>
+                            <div class="cigarette-ember" id="burningEmber"></div>
+                            <div class="smoke-puff"></div>
+                            <div class="smoke-puff-2"></div>
+                            <div class="smoke-puff-3"></div>
+                            <div class="smoke-puff-4"></div>
+                            <div class="smoke-puff-5"></div>
+                            <div class="smoke-puff-6"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reel-label">Smoking Progress</div>
+            </div>
+        </section>
+
+        <!-- Projector Controls -->
+        <nav class="projector-controls">
+            <div class="control-panel">
+                <button class="control-btn prev-btn" id="prevSlide">
+                    <span class="btn-icon">◀</span>
+                    <span class="btn-label">Previous</span>
+                </button>
+                <div class="slide-selector">
+                    <label for="slideSelect">Select Slide:</label>
+                    <select id="slideSelect">
+                        <!-- Will be populated by JavaScript -->
+                    </select>
+                </div>
+                <button class="control-btn next-btn" id="nextSlide">
+                    <span class="btn-label">Next</span>
+                    <span class="btn-icon">▶</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Filmstrip Content -->
+        <main class="filmstrip-content">
+            <div id="additionalSlides">
+                <section class="film-slide" id="slide-1">
+                    <div class="slide-header">
+                        <h2 class="slide-title">Chapter 1: The Worst Nicotine Addict I Have Yet to Meet</h2>
+                    </div>
+                    <div class="slide-content">
+                        <ul>
+                            <li>Allen Carr smoked 100 cigarettes a day and failed to quit many times.</li>
+                            <li>He quit unexpectedly after a hypnotherapy session he thought didn’t work.</li>
+                            <li>He realized fear—not enjoyment—was the real reason people keep smoking.</li>
+                            <li>The book focuses on changing mindset, not using willpower or substitutes.</li>
+                        </ul>
+                        <blockquote>
+                            “The enjoyment smokers think they get from cigarettes is an illusion driven by fear.”
+                        </blockquote>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Filmstrip Footer -->
+        <footer class="filmstrip-footer">
+            <div class="production-credits">
+                <div class="credit-line">Produced by Your Brain</div>
+                <div class="credit-line">Directed by Allen Carr</div>
+                <div class="credit-line">A Freedom Production</div>
+            </div>
+            <div class="educational-disclaimer">
+                <p>This educational program is designed to provide information and support for smoking cessation. Results may vary. Consult with healthcare professionals for personalized medical advice.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
